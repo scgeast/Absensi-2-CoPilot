@@ -11,11 +11,20 @@ $data = mysqli_fetch_assoc($query);
 <head>
   <title>Rekap Lembur</title>
   <link rel="stylesheet" href="style.css">
+  <script>
+    function validateForm() {
+      const mulai = document.forms["lemburForm"]["jam_mulai"].value;
+      const selesai = document.forms["lemburForm"]["jam_selesai"].value;
+      if (mulai >= selesai) {
+        alert("Jam selesai lembur harus lebih besar dari jam mulai.");
+        return false;
+      }
+    }
+  </script>
 </head>
 <body>
   <h2>Form Rekap Lembur</h2>
-
-  <form action="simpan_overtime.php" method="POST">
+  <form name="lemburForm" action="simpan_overtime.php" method="POST" onsubmit="return validateForm()">
     <input type="hidden" name="id_absen" value="<?= $data['id_absen'] ?>">
 
     <label>Nama:</label><br>
@@ -23,12 +32,6 @@ $data = mysqli_fetch_assoc($query);
 
     <label>Tanggal:</label><br>
     <input type="date" name="tanggal" value="<?= $data['tanggal'] ?>" readonly><br><br>
-
-    <label>Jam Masuk:</label><br>
-    <input type="time" value="<?= $data['jam_masuk'] ?>" readonly><br><br>
-
-    <label>Jam Keluar:</label><br>
-    <input type="time" value="<?= $data['jam_keluar'] ?>" readonly><br><br>
 
     <label>Jam Mulai Lembur:</label><br>
     <input type="time" name="jam_mulai" required><br><br>
@@ -43,4 +46,3 @@ $data = mysqli_fetch_assoc($query);
   </form>
 </body>
 </html>
-
