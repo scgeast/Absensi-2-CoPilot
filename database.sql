@@ -1,1 +1,11 @@
+CREATE DATABASE IF NOT EXISTS absensi;
+USE absensi;
+
+CREATE TABLE IF NOT EXISTS absen (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  nama VARCHAR(100) NOT NULL,
+  tanggal DATE NOT NULL,
+  jam_masuk TIME NOT NULL,
+  jam_keluar TIME NOT NULL
+);
 
