@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Entry Absensi</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h2>Form Entry Absensi</h2>
+  <form action="simpan.php" method="POST">
+    <label>Nama:</label><br>
+    <input type="text" name="nama" required><br><br>
+
+    <label>Tanggal:</label><br>
+    <input type="date" name="tanggal" required><br><br>
+
+    <label>Jam Masuk:</label><br>
+    <input type="time" name="jam_masuk" required><br><br>
+
+    <label>Jam Keluar:</label><br>
+    <input type="time" name="jam_keluar" required><br><br>
+
+    <button type="submit">Simpan</button>
+  </form>
+  <br>
+  <a href="absen_tabel.php">Lihat Tabel Absensi</a>
+</body>
+</html>
