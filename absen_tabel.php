@@ -17,11 +17,12 @@ include 'koneksi.php';
       <th>Tanggal</th>
       <th>Jam Masuk</th>
       <th>Jam Keluar</th>
+      <th>Rekap Lembur</th>
     </tr>
 
     <?php
     $no = 1;
-    $query = mysqli_query($conn, "SELECT * FROM absen ORDER BY tanggal DESC");
+    $query = mysqli_query($conn, "SELECT * FROM absensi ORDER BY tanggal DESC");
     while ($data = mysqli_fetch_array($query)) {
       echo "<tr>
               <td>$no</td>
@@ -29,6 +30,7 @@ include 'koneksi.php';
               <td>{$data['tanggal']}</td>
               <td>{$data['jam_masuk']}</td>
               <td>{$data['jam_keluar']}</td>
+              <td><a href='rekap_overtime.php?id_absen={$data['id_absen']}'>Isi Lembur</a></td>
             </tr>";
       $no++;
     }
@@ -38,4 +40,3 @@ include 'koneksi.php';
   <a href="index.html">Kembali ke Form</a>
 </body>
 </html>
-
