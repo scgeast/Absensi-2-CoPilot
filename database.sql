@@ -9,3 +9,11 @@ CREATE TABLE IF NOT EXISTS absen (
   jam_keluar TIME NOT NULL
 );
 
+CREATE TABLE lembur (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  id_absen INT,
+  jam_mulai TIME,
+  jam_selesai TIME,
+  keterangan TEXT,
+  FOREIGN KEY (id_absen) REFERENCES absen(id)
+);
